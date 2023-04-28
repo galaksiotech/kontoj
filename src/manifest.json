@@ -1,0 +1,19 @@
+{
+    "name": "Kontoj",
+    "short_name": "Kontoj",
+    "start_url": ".",
+    "hostUrl" : "",
+    "display": "browser",
+    "description": "A webapp to help create accounts for services",
+    "author": "Antoine Turmel <antoineturmel@gmail.com>",
+    "version" : "1.0",
+    "build" : "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AntoineTurmel/kontojkreado"
+    },
+    "bugs": {
+        "url": "https://github.com/AntoineTurmel/kontojkreado/issues"
+    },
+    "documentation": "https://github.com/AntoineTurmel/kontojkreado#how-to-use-kontoj-v1"
+}

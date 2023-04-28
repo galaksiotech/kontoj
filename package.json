@@ -1,0 +1,12 @@
+{
+    "name": "kontoj",
+    "version": "1.0.0",
+    "devDependencies" : {
+        "serve": "^14.2.0"
+    },
+    "scripts": {
+        "get-git-commit": "git rev-parse --short HEAD",
+        "predeploy": "npm run --silent get-git-commit > git-commit.tmp",
+        "deploy": "npm run predeploy && jq --arg git_commit \"$(cat git-commit.tmp)\" '.build += $git_commit' src/manifest.json > src/manifest.json.tmp && mv src/manifest.json.tmp src/manifest.json && git add src/manifest.json && git commit -m 'Update manifest.json' &&  git push origin `git subtree split --prefix src main`:gh-pages --force"
+    }
+}

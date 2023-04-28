@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "servicesListName": {
+      "type": "string",
+      "description": "Service List Name",
+      "minLength": 1
+    },
+    "subjectMail": {
+      "type": "string",
+      "description": "subject of mail sent to the person with credentials, you can use variables _firstname_ and _lastname_"
+    },
+    "bodyMailStart": {
+      "type": "string",
+      "description": "start of the mail body, you can use variables _firstname_ and _lastname_, eg. 'Hello _firstname_ here are your credentials'"
+    },
+    "bodyMailEnd": {
+      "type": "string",
+      "description": "end of the mail body, eg. 'Greetings'"
+    },
+    "passwordLength": {
+      "type": "number",
+      "description": "length of passwords generated",
+      "default": 8,
+      "minimum": 8
+    },
+    "passwordChars": {
+      "type": "string",
+      "description": "caracters used for password generation, eg. ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "minLength": 10
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createdTime": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "object",
+            "properties": {
+              "URL Login": {
+                "type": "string",
+                "description": "The URL used to connect to the service"
+              },
+              "Service Group": {
+                "type": "string",
+                "description": "The Service Group, used to group services in the interface",
+                "minLength": 1
+              },
+              "Password Notes": {
+                "type": "string",
+                "description": "Password notes shown in inteface and provided in mail body"
+              },
+              "Icon": {
+                "type": "string",
+                "description": "URL to an icon (it can be any browser valid image format)"
+              },
+              "Name": {
+                "type": "string",
+                "description": "Name of the service, mandatory",
+                "minLength": 1
+              },
+              "Password Type": {
+                "type": "string",
+                "description": "Type of connection used, mandatory",
+                "enum": [
+                    "email-password",
+                    "login-password",
+                    "google-account"
+                ]
+              },
+              "User Group": {
+                "type": "array",
+                "description": "User Group that need the service",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "URL Create Account": {
+                "type": "string",
+                "description": "URL path to create the account page on the service"
+              },
+              "Notes": {
+                "type": "string",
+                "description": "Free notes"
+              },
+              "Software": {
+                "type": "string",
+                "description": "URL to download Software"
+              }
+            },
+            "required": [
+              "Name",
+              "Password Type",
+              "Service Group"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "fields"
+        ]
+      }
+    }
+  },
+  "required": [
+    "records",
+    "servicesListName",
+    "passwordLength",
+    "passwordChars"
+  ]
+}

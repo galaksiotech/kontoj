@@ -10,10 +10,10 @@
     "build" : "",
     "repository": {
         "type": "git",
-        "url": "https://github.com/AntoineTurmel/kontojkreado"
+        "url": "https://github.com/galaksiotech/kontoj"
     },
     "bugs": {
-        "url": "https://github.com/AntoineTurmel/kontojkreado/issues"
+        "url": "https://github.com/galaksiotech/kontoj/issues"
     },
-    "documentation": "https://github.com/AntoineTurmel/kontojkreado#how-to-use-kontoj-v1"
+    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v1"
 }

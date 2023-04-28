@@ -1,19 +1,19 @@
 {
-    "name": "Kontoj",
-    "short_name": "Kontoj",
-    "start_url": ".",
-    "hostUrl" : "",
-    "display": "browser",
-    "description": "A webapp to help create accounts for services",
-    "author": "Antoine Turmel <antoineturmel@gmail.com>",
-    "version" : "1.0",
-    "build" : "",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/galaksiotech/kontoj"
-    },
-    "bugs": {
-        "url": "https://github.com/galaksiotech/kontoj/issues"
-    },
-    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v1"
+  "name": "Kontoj",
+  "short_name": "Kontoj",
+  "start_url": ".",
+  "hostUrl": "",
+  "display": "browser",
+  "description": "A webapp to help create accounts for services",
+  "author": "Antoine Turmel <antoineturmel@gmail.com>",
+  "version": "1.0",
+  "build": "e43a729",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galaksiotech/kontoj"
+  },
+  "bugs": {
+    "url": "https://github.com/galaksiotech/kontoj/issues"
+  },
+  "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v1"
 }

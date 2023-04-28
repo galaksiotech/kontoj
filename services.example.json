@@ -1,0 +1,70 @@
+{
+    "servicesListName" : "Example",
+    "subjectMail" : "Credentials for _firstname_ _lastname_",
+    "bodyMailStart" : "Hello _firstname_ _lastname_, here are your credentials:",
+    "bodyMailEnd" : "",
+    "passwordLength" : 20,
+    "passwordChars" : "0123456789abcdefghijklmnopqrstuvwxyz!_-[]ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+	"records": [{
+		"id": "1",
+		"createdTime": "2023-01-01T00:42:00.000Z",
+		"fields": {
+			"URL Login": "https://mail.google.com",
+			"Service Group": "Mail",
+			"Password Notes": "(you should change it at first connection)",
+			"Icon": "https://www.google.com/favicon.ico",
+			"Name": "Gmail",
+			"Password Type": "email-password",
+			"User Group": ["standard", "admin"]
+		}
+	}, {
+		"id": "2",
+		"createdTime": "2023-01-01T00:42:00.000Z",
+		"fields": {
+			"URL Login": "https://outlook.live.com/owa/?nlp=1",
+			"Service Group": "Mail",
+			"Icon": "https://ow2.res.office365.com/owalanding/2022.9.20.02/images/favicon.ico?v=4",
+			"URL Create Account": "https://outlook.live.com/owa/?nlp=1&signup=1",
+			"Name": "Outlook",
+			"Password Type": "email-password",
+			"User Group": ["standard", "admin"]
+		}
+	}, {
+		"id": "3",
+		"createdTime": "2023-02-28T15:07:25.000Z",
+		"fields": {
+			"URL Login": "https://keepersecurity.eu/vault/",
+			"Service Group": "Software",
+			"Icon": "https://www.keepersecurity.com/assets/branding/favicon-96x96.png",
+			"Name": "Keeper",
+			"Password Type": "email-password",
+			"User Group": ["standard", "admin", "dev"]
+		}
+	}, {
+		"id": "4",
+		"createdTime": "2023-02-28T15:28:01.000Z",
+		"fields": {
+			"URL Login": "https://www.office.com/",
+			"Service Group": "Software",
+			"Software": "https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365HomePremRetail&platform=Def&language=fr-FR",
+			"Notes": "Créer un compte Outlook au préalable\n",
+			"Icon": "https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
+			"URL Create Account": "https://account.microsoft.com/services/microsoft365/details",
+			"Name": "Office 365",
+			"Password Type": "email-password",
+			"User Group": ["standard", "admin"]
+		}
+	}, {
+		"id": "5",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://account.jetbrains.com/login",
+			"Service Group": "Software",
+			"Icon": "https://www.jetbrains.com/favicon.ico",
+			"URL Create Account": "https://account.jetbrains.com/login",
+			"Name": "PhpStorm",
+			"Password Type": "email-password",
+			"User Group": ["dev"]
+		}
+	}]
+}

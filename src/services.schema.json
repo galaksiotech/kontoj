@@ -95,6 +95,43 @@
               "Software": {
                 "type": "string",
                 "description": "URL to download Software"
+              },
+              "autofill": {
+                "type": "object",
+                "properties": {
+                  "login": {
+                    "type" : "string",
+                    "description": "jQuery selector for login input field, don't forget to escape double quotes"
+                  },
+                  "email": {
+                    "type" : "string",
+                    "description": "jQuery selector for email input field, don't forget to escape double quotes"
+                  },
+                  "password": {
+                    "type" : "string",
+                    "description": "jQuery selector for password input field, don't forget to escape double quotes"
+                  },
+                  "passwordconfirm": {
+                    "type" : "string",
+                    "description": "jQuery selector for password confirm input field, don't forget to escape double quotes"
+                  },
+                  "firstname": {
+                    "type" : "string",
+                    "description": "jQuery selector for firstname input field, don't forget to escape double quotes"
+                  },
+                  "lastname": {
+                    "type" : "string",
+                    "description": "jQuery selector for lastname input field, don't forget to escape double quotes"
+                  },
+                  "fullname": {
+                    "type" : "string",
+                    "description": "jQuery selector for fullname input field, don't forget to escape double quotes"
+                  },
+                  "custom": {
+                    "type" : "string",
+                    "description": "additionnal JavaScript code to be executed, don't forget to escape double quotes"
+                  }
+                }
               }
             },
             "required": [

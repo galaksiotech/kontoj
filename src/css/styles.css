@@ -5,6 +5,23 @@ body{
   margin: 0px 2px 0px 0px !important;
 }
 
+.welcome-screen {
+  height: 70vh;
+}
+
+.welcome-content {
+  width: 30%;
+}
+
+.welcome-screen h2{
+  color: #273773;
+  text-align: center;
+}
+
+.welcome-screen img{
+  width: 500px;
+}
+
 .accordion-header {
   /*background-color: #3D7068;
   border-radius: 4px 4px 0px 0px;*/
@@ -16,6 +33,7 @@ body{
 
 .accordion-body {
   background-color: #f8f9fa;
+  border-radius: 5px;
 }
 
 .accordion-button:not(.collapsed) {
@@ -53,6 +71,10 @@ dialog {
 }
 
 #helpDialog {
+  width: 600px;
+}
+
+#companionDialog {
   width: 600px;
 }
 

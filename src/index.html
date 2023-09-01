@@ -32,8 +32,8 @@
         </div>
       </div>
       <div class="general-infos row mb-2 row-cols-lg-auto">
-        <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-lastname"></label> <input id="userFirstName" class="form-control" type="text"/></div>
-        <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-firstname"></label> <input id="userLastName" class="form-control" type="text"/></div>
+        <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-firstname"></label> <input id="userFirstName" class="form-control" type="text"/></div>
+        <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-lastname"></label> <input id="userLastName" class="form-control" type="text"/></div>
         <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-email"></label> <input id="userEmail" class="form-control" type="email"/><button class="btn btn-outline-dark btn buttonTop" data-l10n-id="general-fill-email" id="fillEmail">⏬</button></div>
         <div class="col d-inline-flex align-items-center"><label class="labelTop" data-l10n-id="general-group"></label> <select id="userGroup" class="form-select"><option value="none" selected>---</option></select></div>
         <div class="col d-inline-flex align-items-center">
@@ -41,23 +41,63 @@
           <button id="genPassAll" class="btn btn-outline-dark" data-l10n-id="general-generate-password">🔑</button>
           <button id="genMail" class="btn btn-outline-dark buttonTop" data-l10n-id="general-generate-mail">📨</button>
           <button id="helpButton" class="btn btn-outline-dark buttonTop dialogButton" data-dialog-id="helpDialog" data-l10n-id="general-help">📜</button>
+          <button id="settingsButton" class="btn btn-outline-dark buttonTop dialogButton" data-dialog-id="settingsDialog" data-l10n-id="general-settings">🛠️</button>
+          <button id="companionButton" class="btn btn-outline-dark buttonTop dialogButton" data-dialog-id="companionDialog" data-l10n-id="general-companion">🤖</button>
           <button id="aboutButton" class="btn btn-outline-dark buttonTop dialogButton" data-dialog-id="aboutDialog" data-l10n-id="general-about-kontoj">✨</button>
         </div>
       </div>
     </div>
     <div class="accordion accordion--custom services-list" id="myAccordion"></div>
+    <div class="welcome-screen justify-content-center align-items-center d-flex">
+      <div class="welcome-content">
+        <h2 data-l10n-id="welcome-title" class="pb-2"></h2>
+        <img class="pb-2" src="images/undraw_to_do_re_jaef.svg" alt="image of a person in front of a list"/>
+        <p><span data-l10n-id="welcome-begin"></span><a href="services.example.json" download>📃 services.example.json</a></p>
+        <p><span data-l10n-id="help-documentation-url"></span> <a href="" target="_blank" class="docUrl"></a></p>
+      </div>
+    </div>
     <dialog class="text-bg-light" id="aboutDialog">
       <div class="row"><b><label>Kontoj</label></b></div>
       <div class="row"><span class="col" data-l10n-id="about-version"></span><span class="col" id="version"></span></div>
       <div class="row"><span data-l10n-id="about-author"></span></div>
       <div class="row"><span class="col"><a href="" target="_blank" id="projectUrl"></a></span></div>
       <div class="row"><span class="col"><a href="" target="_blank" id="licenceUrl">MIT Licence</a></span></div>
+      <div class="row"><span data-l10n-id="about-donate"></span></div>
+      <div class="row"><a href="https://www.paypal.me/AntoineTURMEL" target="_blank">https://www.paypal.me/AntoineTURMEL</a></div>
+      <div class="row"><span data-l10n-id="about-thanks"></span></div>
     </dialog>
     <dialog class="text-bg-light" id="helpDialog">
       <div class="row"><span data-l10n-id="help-documentation-url"></span></div>
-      <div class="row"><span><a href="" target="_blank" id="docUrl"></a></span></div>
+      <div class="row"><span><a href="" target="_blank" class="docUrl"></a></span></div>
       <div class="row pt-2"><span data-l10n-id="help-try-kontoj"></span></div>
       <div class="row pt-2"><a href="services.example.json" download>📃 services.example.json</a></div>
+    </dialog>
+    <dialog class="text-bg-light" id="settingsDialog">
+      <div class="row pb-1"><b><span data-l10n-id="settings-mailto-type"></span></b></div>
+      <div class="form-check pb-2">
+        <div>
+          <input class="form-check-input" type="radio" id="setting-body" name="setting-mailto-type" value="body">
+          <label for="setting-body">body</label> <span data-l10n-id="settings-mailto-body-indication"></span>
+        </div>
+        <div>
+          <input class="form-check-input" type="radio" id="setting-htmlbody" name="setting-mailto-type" value="html-body">
+          <label for="setting-htmlbody">html-body</label> <span data-l10n-id="settings-mailto-htmlbody-indication"></span>
+        </div>
+      </div>
+    <button id="saveSettings" data-l10n-id="settings-dialog-save" class="btn btn-outline-dark"></button>
+
+    </dialog>
+    <dialog class="text-bg-light" id="companionDialog">
+      <div class="row"><span data-l10n-id="campanion-intro"></span></div>
+      <div class="row pt-2">
+        <span data-l10n-id="companion-addon-install">
+          <a data-l10n-name="violentmonkey-url" href="https://violentmonkey.github.io/get-it/" target="_blank"></a>
+          <a data-l10n-name="tampermonkey-url" href="https://www.tampermonkey.net/" target="_blank"></a>
+        </span>
+      </div>
+      <div class="row pt-2"><span data-l10n-id="companion-userscript-install"></span></div>
+      <div class="row"><span><a href="/js/kontoj_companion.user.js" target="_blank" class="">📃 kontoj_companion.user.js</a></span></div>
+      <div class="row pt-2"><span data-l10n-id="companion-note"></span></div>
     </dialog>
   </body>
 </html>

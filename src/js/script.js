@@ -1,5 +1,9 @@
 $( document ).ready(function() {
 
+function confirmExit() {
+    return "";
+}
+
 jQuery.fn.extend({
   modal: function(action) {
     return this.each(function() {
@@ -17,12 +21,17 @@ jQuery.fn.extend({
 });
 
 
-const newLineMailTo = "%0D%0A";
+const newLineMailToBody = "%0D%0A";
+const newLineMailToHtmlBody = "<br/>";
 var subjectMail = "";
 var bodyMailStart = "";
 var bodyMailEnd = "";
 var passwordLength = 20;
 var passwordChars = "";
+var mailTo = "body";
+var newLine = "";
+var boldTagOpen = "";
+var boldTagClose = "";
 
 // strings
 var serviceUrlStr = "";
@@ -37,12 +46,22 @@ async function loadStrings() {
   loginStr = await document.l10n.formatValue('service-mailbody-login');
   googleStr = await document.l10n.formatValue('service-login-google-account');
   passwordStr = await document.l10n.formatValue('service-mailbody-password');
+  noFileSelectedStr = await document.l10n.formatValue('json-no-file-selected');
 }
 
 loadStrings();
 
 $(".dialogButton").on("click", function(e){
   $("#" + $(this).data("dialog-id")).modal("showModal");
+  if($(this).data("dialog-id") == "settingsDialog") {
+    if (localStorage.getItem('mailto')) {
+      mailTo = localStorage.getItem('mailto') // body or html-body
+      $('input[name=setting-mailto-type][value=' + mailTo + ']').prop( "checked", true );
+    } else {
+      mailTo = "body";
+      $("#setting-body").prop( "checked", true );
+    }
+  };
 });
 
 $("dialog").on("click", function(e){
@@ -75,11 +94,20 @@ $("#saveConfig").on("click", function() {
 $("#loadConfig").on("click", function() {
   //valueConfig = localStorage.getItem('config');
   //$("#valueConfig").val(valueConfig);
-  loadConfig();
+  if($('#jsonFile')[0].files[0]) {
+    loadConfig();
+  } else {
+    alert(noFileSelectedStr);
+  }
 });
 
 $("#clearConfig").on("click", function() {
   localStorage.removeItem('config');
+});
+
+$("#saveSettings").on("click", function(){
+ localStorage.setItem('mailto', $("input[name='setting-mailto-type']:checked").val());
+ $("#settingsDialog").modal("close");
 });
 
 $.getJSON("manifest.json", function( manifest ) {
@@ -90,11 +118,14 @@ $.getJSON("manifest.json", function( manifest ) {
   $("#projectUrl").attr("href",manifest.repository.url);
   $("#projectUrl").text(manifest.repository.url);
   $("#licenceUrl").attr("href",manifest.repository.url + '/blob/main/LICENSE');
-  $("#docUrl").attr("href",manifest.documentation);
-  $("#docUrl").text(manifest.documentation);
+  $(".docUrl").attr("href",manifest.documentation);
+  $(".docUrl").text(manifest.documentation);
 });
 
 function loadConfig() {
+  window.onbeforeunload = confirmExit;
+
+  $(".welcome-screen").empty();
   $('#myAccordion').empty();
   $('#userGroup').empty();
   $('#userGroup').append($('<option>', {
@@ -311,10 +342,27 @@ $('#genMail').on('click', function (event) {
     alertEmptyMail();
   } else {
     if(checkIfAtLeastOneServiceChecked()) {
+
+      if (localStorage.getItem('mailto')) {
+        mailTo = localStorage.getItem('mailto') // body or html-body
+      }
+
+      if(mailTo == "body") {
+        newLine = newLineMailToBody;
+        boldTagOpen = "";
+        boldTagClose = "";
+      } else if(mailTo == "html-body") {
+        newLine = newLineMailToHtmlBody;
+        boldTagOpen = "<b>";
+        boldTagClose = "</b>";
+      }
+
+      window.onbeforeunload = "";
       var email = $("#userEmail").val();
       var subject = subjectMail.replaceAll("_firstname_", $("#userFirstName").val()).replaceAll("_lastname_", $("#userLastName").val());
       var emailBody = genBodyMail();
-      window.location = 'mailto:' + email + '?subject=' + subject + '&html-body=' +   emailBody;
+      window.location = 'mailto:' + email + '?subject=' + subject + '&'+mailTo+'=' + emailBody;
+      window.onbeforeunload = confirmExit;
     }
   }
 });
@@ -323,33 +371,37 @@ function genBodyMail() {
   var emailBody = '';
   if(bodyMailStart != "") {
     emailBody += bodyMailStart.replaceAll("_firstname_", $("#userFirstName").val()).replaceAll("_lastname_", $("#userLastName").val());
-    emailBody += "<br/><br/>";
+    emailBody += newLine+newLine;
   }
   $(".service-row").each(function() {
     if($(this).find('input[type="checkbox"]').is(":checked")) {
       var serviceName = $(this).data("service-name");
-      emailBody += "<b>"+$('[data-service-name="'+serviceName+'"] .serviceNameClean').text()+"</b>";
-      emailBody += "<br/>";
+      emailBody += boldTagOpen+$('[data-service-name="'+serviceName+'"] .serviceNameClean').text()+boldTagClose;
+      emailBody += newLine;
       if($('[data-service-name="'+serviceName+'"] .url-login').prop("href") != null) {
-        emailBody += serviceUrlStr + " <a href='"+$('[data-service-name="'+serviceName+'"] .url-login').prop("href")+"'>"+$('[data-service-name="'+serviceName+'"] .url-login').prop("href")+"</a>";
-        emailBody += "<br/>";
+        if(mailTo == "html-body") {
+          emailBody += serviceUrlStr + " <a href='"+$('[data-service-name="'+serviceName+'"] .url-login').prop("href")+"'>"+$('[data-service-name="'+serviceName+'"] .url-login').prop("href")+"</a>";
+        } else {
+          emailBody += serviceUrlStr + " "+$('[data-service-name="'+serviceName+'"] .url-login').prop("href");
+        }
+        emailBody += newLine;
       }
       if($(this).data("password-type") == "google-account") {
         emailBody += googleStr;
-        emailBody += "<br/>";
+        emailBody += newLine;
       } else {
         if($(this).data("password-type") == "email-password") {
           emailBody += emailStr + " " + $('[data-service-name="'+serviceName+'"] .emailfield').val();
-          emailBody += "<br/>";
+          emailBody += newLine;
         }
         if($(this).data("password-type") == "login-password") {
           emailBody += loginStr + " " + $('[data-service-name="'+serviceName+'"] .loginfield').val();
-          emailBody += "<br/>";
+          emailBody += newLine;
         }
         emailBody += passwordStr + " " + $('[data-service-name="'+serviceName+'"] .passwordfield').val();
-        emailBody += "<br/>";
+        emailBody += newLine;
       }
-      emailBody += "<br/>";
+      emailBody += newLine;
       if(bodyMailEnd != "") {
         emailBody += bodyMailEnd;
       }

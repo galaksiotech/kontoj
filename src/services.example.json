@@ -66,5 +66,25 @@
 			"Password Type": "email-password",
 			"User Group": ["dev"]
 		}
+	}, {
+		"id": "6",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://accounts.thingiverse.com/",
+			"Service Group": "3D Print",
+			"Icon": "https://accounts.thingiverse.com/favicon.ico",
+			"URL Create Account": "https://accounts.thingiverse.com/register",
+			"Name": "Thingiverse",
+			"Password Type": "email-password",
+			"User Group": ["standard"],
+			"autofill" : {
+				"email" : "$(\"input[name='email']\")",
+				"firstname" : "$(\"input[name='first_name']\")",
+				"lastname" : "$(\"input[name='last_name']\")",
+				"password" : "$(\"input[name='password']\")",
+				"passwordconfirm" : "$(\"input[name='confirm-password']\")",
+				"custom": "$(\"#country option[value='France']\").prop('selected', true);"
+			}
+		}
 	}]
 }

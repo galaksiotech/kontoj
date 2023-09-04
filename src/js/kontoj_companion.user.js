@@ -2,7 +2,7 @@
 // @name           Kontoj Companion
 // @name:fr        Companion Kontoj
 // @namespace      kontoj@galaksio.tech
-// @version        1.0.20230531
+// @version        1.1.20230904
 // @description    Autofill informations on services based on jQuery selectors
 // @description:fr Rempli automatiquement les informations sur les services en se basant sur les sélecteurs jQuery
 // @author         Antoine Turmel <antoineturmel@gmail.com>
@@ -72,47 +72,55 @@ if (isKontojHost) {
     });
 }
 
+function fillRecords(e, serviceName) {
+    // Load all fields
+    if(e.fields['autofill'].login){
+        eval(e.fields['autofill'].login).val(GM_getValue(serviceName + '.login', ''));
+    }
+    if(e.fields['autofill'].fullname){
+        eval(e.fields['autofill'].fullname).val(GM_getValue('userFirstName', '') + ' ' + GM_getValue('userLastName', ''));
+    }
+    if(e.fields['autofill'].firstname){
+        eval(e.fields['autofill'].firstname).val(GM_getValue('userFirstName', ''));
+    }
+    if(e.fields['autofill'].lastname){
+        eval(e.fields['autofill'].lastname).val(GM_getValue('userLastName', ''));
+    }
+    if(e.fields['autofill'].email){
+        eval(e.fields['autofill'].email).val(GM_getValue(serviceName + '.email',''));
+    }
+    if(e.fields['autofill'].password){
+        eval(e.fields['autofill'].password).val(GM_getValue(serviceName + '.password',''));
+    }
+    if(e.fields['autofill'].passwordconfirm){
+        eval(e.fields['autofill'].passwordconfirm).val(GM_getValue(serviceName + '.password',''));
+    }
+
+    // Load custom code if needed
+    if(e.fields['autofill'].custom){
+        eval(e.fields['autofill'].custom);
+    }
+}
+
 var data = GM_getValue('kontoj_json', '');
 data.records.forEach(function(e) {
     if(window.location.href.includes(e.fields["URL Create Account"])) {
         var serviceName = cleanString(e.fields["Name"], "service_");
 
-        // Load jquery from userscript metadata block:
-        // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js
-        // Load jQuery from userscript content:
-        fetch('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js')
-            .then(response => response.text())
-            .then(code => eval(code)).then(function() {
+        if (typeof $ !== 'undefined') {
+            fillRecords(e, serviceName);
 
-            // Load all fields
-            if(e.fields['autofill'].login){
-                eval(e.fields['autofill'].login).val(GM_getValue(serviceName + '.login', ''));
-            }
-            if(e.fields['autofill'].fullname){
-                eval(e.fields['autofill'].fullname).val(GM_getValue('userFirstName', '') + ' ' + GM_getValue('userLastName', ''));
-            }
-            if(e.fields['autofill'].firstname){
-                eval(e.fields['autofill'].firstname).val(GM_getValue('userFirstName', ''));
-            }
-            if(e.fields['autofill'].lastname){
-                eval(e.fields['autofill'].lastname).val(GM_getValue('userLastName', ''));
-            }
-            if(e.fields['autofill'].email){
-                eval(e.fields['autofill'].email).val(GM_getValue(serviceName + '.email',''));
-            }
-            if(e.fields['autofill'].password){
-                eval(e.fields['autofill'].password).val(GM_getValue(serviceName + '.password',''));
-            }
-            if(e.fields['autofill'].passwordconfirm){
-                eval(e.fields['autofill'].passwordconfirm).val(GM_getValue(serviceName + '.password',''));
-            }
-
-            // Load custom code if needed
-            if(e.fields['autofill'].custom){
-                eval(e.fields['autofill'].custom);
-            }
-
-        });
+        } else {
+            //console.log('jQuery is not loaded.');
+            // Load jquery from userscript metadata block:
+            // @require      https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js
+            // Load jQuery from userscript content: (may not work due to CSP rules of website/server)
+            fetch('https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js')
+                .then(response => response.text())
+                .then(code => eval(code)).then(function() {
+                fillRecords(e, serviceName);
+            });
+        }
 
     // TODO: Load Role
     // TODO: Reset Values in UserScript storage on click on create button

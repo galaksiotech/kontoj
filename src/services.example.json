@@ -70,20 +70,18 @@
 		"id": "6",
 		"createdTime": "2023-02-28T15:32:20.000Z",
 		"fields": {
-			"URL Login": "https://accounts.thingiverse.com/",
-			"Service Group": "3D Print",
-			"Icon": "https://accounts.thingiverse.com/favicon.ico",
-			"URL Create Account": "https://accounts.thingiverse.com/register",
-			"Name": "Thingiverse",
+			"URL Login": "https://gitlab.com/users/sign_in",
+			"Service Group": "Development",
+			"Icon": "https://gitlab.com/favicon.ico",
+			"URL Create Account": "https://gitlab.com/users/sign_up",
+			"Name": "Gitlab",
 			"Password Type": "email-password",
 			"User Group": ["standard"],
 			"autofill" : {
-				"email" : "$(\"input[name='email']\")",
-				"firstname" : "$(\"input[name='first_name']\")",
-				"lastname" : "$(\"input[name='last_name']\")",
-				"password" : "$(\"input[name='password']\")",
-				"passwordconfirm" : "$(\"input[name='confirm-password']\")",
-				"custom": "$(\"#country option[value='France']\").prop('selected', true);"
+				"firstname" : "$(\"#new_user_first_name\")",
+				"lastname" : "$(\"#new_user_last_name\")",
+				"email" : "$(\"#new_user_email\")",
+				"password" : "$(\"#new_user_password\")"
 			}
 		}
 	}]

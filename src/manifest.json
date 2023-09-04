@@ -6,7 +6,7 @@
     "display": "browser",
     "description": "A webapp to help create accounts for services",
     "author": "Antoine Turmel <antoineturmel@gmail.com>",
-    "version" : "1.1",
+    "version" : "1.1.1",
     "build" : "",
     "repository": {
         "type": "git",
@@ -15,5 +15,9 @@
     "bugs": {
         "url": "https://github.com/galaksiotech/kontoj/issues"
     },
-    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v1.1"
+    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v11",
+    "host": {
+        "name": "GitHub",
+        "url" : "https://github.com"
+    }
 }

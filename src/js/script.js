@@ -215,7 +215,12 @@ function loadConfig() {
         accordionItemHtml +=  '<div class="col-1"><a href="' + val.fields["URL Login"] + '" target="_blank" class="url-login icon-button" data-l10n-id="service-action-login">🚪</a></div>';
       }
       if(val.fields["URL Create Account"]) {
-        accordionItemHtml +=  '<div class="col-1"><a href="' + val.fields["URL Create Account"] + '" target="_blank" class="url-create-account icon-button" data-l10n-id="service-action-create-account">👤</a></div>';
+        accordionItemHtml +=  '<div class="col-1"><a href="' + val.fields["URL Create Account"] + '" target="_blank" class="url-create-account icon-button" data-l10n-id="service-action-create-account">👤';
+        if(val.fields["autofill"]) {
+          accordionItemHtml += '➕</a></div>';
+        } else {
+          accordionItemHtml += '</a></div>';
+        }
       }
       accordionItemHtml +=  '</div>';
       $('#AcItem_' + cleanString(val.fields["Service Group"]) + ' .accordion-body').append(accordionItemHtml);

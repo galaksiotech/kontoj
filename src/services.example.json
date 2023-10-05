@@ -5,6 +5,8 @@
     "bodyMailEnd" : "",
     "passwordLength" : 20,
     "passwordChars" : "0123456789abcdefghijklmnopqrstuvwxyz!_-[]ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+	"hideGroups" : ["Software"],
+	"disableGroups" : ["Social Networks"],
 	"records": [{
 		"id": "1",
 		"createdTime": "2023-01-01T00:42:00.000Z",
@@ -52,7 +54,8 @@
 			"URL Create Account": "https://account.microsoft.com/services/microsoft365/details",
 			"Name": "Office 365",
 			"Password Type": "email-password",
-			"User Group": ["standard", "admin"]
+			"User Group": ["standard", "admin"],
+			"Config": ["disableFillEmail"]
 		}
 	}, {
 		"id": "5",
@@ -82,7 +85,44 @@
 				"lastname" : "$(\"#new_user_last_name\")",
 				"email" : "$(\"#new_user_email\")",
 				"password" : "$(\"#new_user_password\")"
-			}
+			},
+			"Config": ["disableFillPassword"]
+		}
+	}, {
+		"id": "7",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://github.com/login",
+			"Service Group": "Development",
+			"Icon": "https://github.com/favicon.ico",
+			"URL Create Account": "https://github.com/signup",
+			"Name": "GitHub",
+			"Password Type": "email-password",
+			"User Group": ["standard"],
+			"Config": ["disabled"]
+		}
+	}, {
+		"id": "8",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://twitter.com/i/flow/login",
+			"Service Group": "Social Networks",
+			"Icon": "https://abs.twimg.com/favicons/twitter.3.ico",
+			"URL Create Account": "https://twitter.com/i/flow/signup",
+			"Name": "X",
+			"Password Type": "email-password",
+			"User Group": ["standard"]
+		}
+	}, {
+		"id": "9",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://www.threads.net/login",
+			"Service Group": "Social Networks",
+			"Icon": "https://static.cdninstagram.com/rsrc.php/v3/yV/r/_8T3PbCSTRI.png",
+			"Name": "Threads",
+			"Password Type": "email-password",
+			"User Group": ["standard"]
 		}
 	}]
 }

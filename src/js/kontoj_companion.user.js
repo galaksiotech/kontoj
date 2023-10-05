@@ -35,7 +35,7 @@ const isKontojHost = kontoj_hosts.some(r=> window.location.host.includes(r))
 if (isKontojHost) {
     const asyncKeys = await GM.listValues();
     $( document ).ready(function() {
-        $("#aboutDialog .row").first().find("b").text($("#aboutDialog .row").first().find("b").text() + " ✨");
+        $("#apptitle").text($("#apptitle").text() + " ✨");
         $("body").on("click", "#loadConfig", function(){
             var fileInputCompanion = $('#jsonFile');
             var fileCompanion = fileInputCompanion[0].files[0];

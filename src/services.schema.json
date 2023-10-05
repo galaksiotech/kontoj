@@ -17,7 +17,7 @@
     },
     "bodyMailEnd": {
       "type": "string",
-      "description": "end of the mail body, eg. 'Greetings'"
+      "description": "end of the mail body, you can use variables _firstname_ and _lastname_, eg. 'Greetings'"
     },
     "passwordLength": {
       "type": "number",
@@ -29,6 +29,22 @@
       "type": "string",
       "description": "caracters used for password generation, eg. ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       "minLength": 10
+    },
+    "hideGroups": {
+      "type": "array",
+      "description": "a list of service groups to hide, identified by their name",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "disableGroups": {
+      "type": "array",
+      "description": "a list of service groups to disable, identified by their name",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
     },
     "records": {
       "type": "array",
@@ -131,6 +147,14 @@
                     "type" : "string",
                     "description": "additionnal JavaScript code to be executed, don't forget to escape double quotes"
                   }
+                }
+              },
+              "Config": {
+                "type": "array",
+                "description": "Additional config for each service, eg. 'disabled' for not loading the service, 'disableFillPassword' & 'disableFillEmail' for disabling autofill",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
                 }
               }
             },

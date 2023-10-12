@@ -2,7 +2,7 @@
 // @name           Kontoj Companion
 // @name:fr        Companion Kontoj
 // @namespace      kontoj@galaksio.tech
-// @version        1.1.20230904
+// @version        1.2.20231012
 // @description    Autofill informations on services based on jQuery selectors
 // @description:fr Rempli automatiquement les informations sur les services en se basant sur les sélecteurs jQuery
 // @author         Antoine Turmel <antoineturmel@gmail.com>
@@ -36,7 +36,7 @@ if (isKontojHost) {
     const asyncKeys = await GM.listValues();
     $( document ).ready(function() {
         $("#apptitle").text($("#apptitle").text() + " ✨");
-        $("body").on("click", "#loadConfig", function(){
+        $("body").on("change", "#jsonFile", function(){
             var fileInputCompanion = $('#jsonFile');
             var fileCompanion = fileInputCompanion[0].files[0];
             var readerCompanion = new FileReader();

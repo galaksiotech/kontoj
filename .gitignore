@@ -1,2 +1,10 @@
 # Dependency directories
 node_modules/
+src/config.json
+src/css/bootstrap.min.css
+src/css/google-fonts.css
+src/fonts/Open_Sans*
+src/fonts/bootstrap-icons/*
+src/js/bootstrap.bundle.min.js
+src/js/fluent-web.js
+src/js/jquery.min.js

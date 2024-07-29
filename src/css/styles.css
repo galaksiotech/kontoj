@@ -1,8 +1,19 @@
+@font-face {
+  font-family: 'password';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/password.ttf);
+}
+
 body{
   font-family:"Open Sans";
   padding-left:10px;
   padding-right:10px;
   margin: 0px 2px 0px 0px !important;
+}
+
+#whatsnew-alert{
+  display: none;
 }
 
 .welcome-screen {
@@ -71,12 +82,18 @@ dialog {
   background-color: #f8f9fa;
 }
 
-#helpDialog {
+#helpDialog,
+#companionDialog,
+#settingsDialog {
   width: 600px;
 }
 
-#companionDialog {
-  width: 600px;
+#kontoj-companion-installed-status-ok,
+#kontoj-companion-installed-status-nok,
+#kontoj-companion-installed-status-version,
+#version-available,
+#companionInstallInformationButton {
+  display: none;
 }
 
 #aboutDialog {
@@ -89,7 +106,7 @@ dialog {
   font-size: 1.2rem;
 }
 
-.unlock_pass {
+button.unlock_pass {
   display:none;
 }
 
@@ -109,9 +126,31 @@ dialog {
   background-color: #caede0 !important;
 }
 
-.passwordfield {
-  color: #cecece;
+.emailfield {
+  font-family: "Open Sans";
 }
+
+.passwordfield {
+  font-family: "Open Sans";
+}
+
+.hide-password {
+  font-family: 'password';
+}
+
+.passwordfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: "Open Sans";
+  opacity: 1; /* Firefox */
+}
+
+.passwordfield:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Open Sans";
+}
+
+.passwordfield::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: "Open Sans";
+}
+
 
 .row {
   background: #f8f9fa;
@@ -201,9 +240,6 @@ input.larger {
 }
 [data-bs-theme=dark] .row {
   background: #2c2c2c;
-}
-[data-bs-theme=dark] .passwordfield {
-  color: #515151;
 }
 [data-bs-theme=dark] dialog {
   background-color: #2c2c2c;

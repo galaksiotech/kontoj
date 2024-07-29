@@ -65,6 +65,19 @@
                 "type": "string",
                 "description": "The URL used to connect to the service"
               },
+              "Status": {
+                "type": "object",
+                "properties": {
+                  "URL": {
+                    "type" : "string",
+                    "description": "The URL of the service status dashboard"
+                  },
+                  "iframe": {
+                    "type" : "boolean",
+                    "description": "If the service status can be opened in an iframe"
+                  }
+                }
+              },
               "Service Group": {
                 "type": "string",
                 "description": "The Service Group, used to group services in the interface",
@@ -89,7 +102,7 @@
                 "enum": [
                     "email-password",
                     "login-password",
-                    "google-account"
+                    "third-party"
                 ]
               },
               "User Group": {
@@ -117,31 +130,31 @@
                 "properties": {
                   "login": {
                     "type" : "string",
-                    "description": "jQuery selector for login input field, don't forget to escape double quotes"
+                    "description": "CSS selector for login input field, don't forget to escape double quotes"
                   },
                   "email": {
                     "type" : "string",
-                    "description": "jQuery selector for email input field, don't forget to escape double quotes"
+                    "description": "CSS selector for email input field, don't forget to escape double quotes"
                   },
                   "password": {
                     "type" : "string",
-                    "description": "jQuery selector for password input field, don't forget to escape double quotes"
+                    "description": "CSS selector for password input field, don't forget to escape double quotes"
                   },
                   "passwordconfirm": {
                     "type" : "string",
-                    "description": "jQuery selector for password confirm input field, don't forget to escape double quotes"
+                    "description": "CSS selector for password confirm input field, don't forget to escape double quotes"
                   },
                   "firstname": {
                     "type" : "string",
-                    "description": "jQuery selector for firstname input field, don't forget to escape double quotes"
+                    "description": "CSS selector for firstname input field, don't forget to escape double quotes"
                   },
                   "lastname": {
                     "type" : "string",
-                    "description": "jQuery selector for lastname input field, don't forget to escape double quotes"
+                    "description": "CSS selector for lastname input field, don't forget to escape double quotes"
                   },
                   "fullname": {
                     "type" : "string",
-                    "description": "jQuery selector for fullname input field, don't forget to escape double quotes"
+                    "description": "CSS selector for fullname input field, don't forget to escape double quotes"
                   },
                   "custom": {
                     "type" : "string",

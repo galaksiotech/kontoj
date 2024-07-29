@@ -2,7 +2,7 @@
     "servicesListName" : "Example",
     "subjectMail" : "Credentials for _firstname_ _lastname_",
     "bodyMailStart" : "Hello _firstname_ _lastname_, here are your credentials:",
-    "bodyMailEnd" : "",
+    "bodyMailEnd" : "Best regards",
     "passwordLength" : 20,
     "passwordChars" : "0123456789abcdefghijklmnopqrstuvwxyz!_-[]ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	"hideGroups" : ["Software"],
@@ -12,6 +12,9 @@
 		"createdTime": "2023-01-01T00:42:00.000Z",
 		"fields": {
 			"URL Login": "https://mail.google.com",
+			"Status": {
+				"URL": "https://www.google.com/appsstatus/dashboard/"
+			},
 			"Service Group": "Mail",
 			"Password Notes": "(you should change it at first connection)",
 			"Icon": "https://www.google.com/favicon.ico",
@@ -24,6 +27,10 @@
 		"createdTime": "2023-01-01T00:42:00.000Z",
 		"fields": {
 			"URL Login": "https://outlook.live.com/owa/?nlp=1",
+			"Status": {
+				"URL": "https://portal.office.com/servicestatus",
+				"iframe": false
+			},
 			"Service Group": "Mail",
 			"Icon": "https://ow2.res.office365.com/owalanding/2022.9.20.02/images/favicon.ico?v=4",
 			"URL Create Account": "https://outlook.live.com/owa/?nlp=1&signup=1",
@@ -36,6 +43,9 @@
 		"createdTime": "2023-02-28T15:07:25.000Z",
 		"fields": {
 			"URL Login": "https://keepersecurity.eu/vault/",
+			"Status": {
+				"URL": "https://statuspage.keeper.io/"
+			},
 			"Service Group": "Software",
 			"Icon": "https://www.keepersecurity.com/assets/branding/favicon-96x96.png",
 			"Name": "Keeper",
@@ -47,15 +57,35 @@
 		"createdTime": "2023-02-28T15:28:01.000Z",
 		"fields": {
 			"URL Login": "https://www.office.com/",
+			"Status": {
+				"URL": "https://status.office365.com/",
+				"iframe": false
+			},
 			"Service Group": "Software",
 			"Software": "https://c2rsetup.officeapps.live.com/c2r/download.aspx?productReleaseID=O365HomePremRetail&platform=Def&language=fr-FR",
 			"Notes": "Créer un compte Outlook au préalable\n",
 			"Icon": "https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
 			"URL Create Account": "https://account.microsoft.com/services/microsoft365/details",
 			"Name": "Office 365",
-			"Password Type": "email-password",
+			"Password Type": "third-party",
+			"Third Party": "Microsoft",
 			"User Group": ["standard", "admin"],
 			"Config": ["disableFillEmail"]
+		}
+	}, {
+		"id": "10",
+		"createdTime": "2023-01-01T00:42:00.000Z",
+		"fields": {
+			"URL Login": "https://drive.google.com/",
+			"Status": {
+				"URL": "https://www.google.com/appsstatus/dashboard/"
+			},
+			"Service Group": "Software",
+			"Icon": "https://drive.google.com/favicon.ico",
+			"Name": "Google Drive",
+			"Password Type": "third-party",
+			"Third Party": "Google",
+			"User Group": ["standard", "admin"]
 		}
 	}, {
 		"id": "5",
@@ -68,12 +98,16 @@
 			"Name": "PhpStorm",
 			"Password Type": "email-password",
 			"User Group": ["dev"]
-		}
+		},
+		"Config": ["disableFillPassword"]
 	}, {
 		"id": "6",
 		"createdTime": "2023-02-28T15:32:20.000Z",
 		"fields": {
 			"URL Login": "https://gitlab.com/users/sign_in",
+			"Status": {
+				"URL": "https://status.gitlab.com/"
+			},
 			"Service Group": "Development",
 			"Icon": "https://gitlab.com/favicon.ico",
 			"URL Create Account": "https://gitlab.com/users/sign_up",
@@ -81,12 +115,11 @@
 			"Password Type": "email-password",
 			"User Group": ["standard"],
 			"autofill" : {
-				"firstname" : "$(\"#new_user_first_name\")",
-				"lastname" : "$(\"#new_user_last_name\")",
-				"email" : "$(\"#new_user_email\")",
-				"password" : "$(\"#new_user_password\")"
-			},
-			"Config": ["disableFillPassword"]
+				"firstname" : "input[id='new_user_first_name']",
+				"lastname" : "input[id='new_user_last_name']",
+				"email" : "input[id='new_user_email']",
+				"password" : "input[id='new_user_password']"
+			}
 		}
 	}, {
 		"id": "7",
@@ -100,6 +133,22 @@
 			"Password Type": "email-password",
 			"User Group": ["standard"],
 			"Config": ["disabled"]
+		}
+	}, {
+		"id": "11",
+		"createdTime": "2023-02-28T15:32:20.000Z",
+		"fields": {
+			"URL Login": "https://www.npmjs.com/login",
+			"Service Group": "Development",
+			"URL Create Account": "https://www.npmjs.com/signup",
+			"Name": "npm",
+			"Password Type": "login-password",
+			"User Group": ["standard"],
+			"autofill" : {
+				"login" : "input[id='signup_name']",
+				"email" : "input[id='signup_email']",
+				"password" : "input[id='signup_password']"
+			}
 		}
 	}, {
 		"id": "8",

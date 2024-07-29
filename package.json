@@ -1,12 +1,25 @@
 {
     "name": "kontoj",
     "version": "1.0.0",
-    "devDependencies" : {
+    "devDependencies": {
         "serve": "^14.2.0"
     },
     "scripts": {
         "get-git-commit": "git rev-parse --short HEAD",
         "predeploy": "npm run --silent get-git-commit > git-commit.tmp",
-        "deploy": "npm run predeploy && jq --arg git_commit \"$(cat git-commit.tmp)\" '.build += $git_commit' src/manifest.json > src/manifest.json.tmp && mv src/manifest.json.tmp src/manifest.json && git add src/manifest.json && git commit -m 'Update manifest.json' &&  git push origin `git subtree split --prefix src main`:gh-pages --force"
+        "use-github-config": "git mv src/config.github.json src/config.json",
+        "add-js-css-fonts": "git add src/fonts src/js src/css --force",
+        "deploy": "npm install && npx gulp && npm run add-js-css-fonts && npm run predeploy && npm run --silent use-github-config && jq --arg git_commit \"$(cat git-commit.tmp)\" '.build += $git_commit' src/manifest.json > src/manifest.json.tmp && mv src/manifest.json.tmp src/manifest.json && git add src/manifest.json && git commit -m 'Update manifest.json and config.json' &&  git push origin `git subtree split --prefix src main`:gh-pages --force",
+        "serve": "npx serve src -p 3210 "
+    },
+    "dependencies": {
+        "@fluent/web": "^0.2.1",
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
+        "gulp": "^5.0.0",
+        "gulp-cli": "^3.0.0",
+        "gulp-google-webfonts": "^4.1.0",
+        "gulp-replace": "^1.1.4",
+        "jquery": "^3.7.1"
     }
 }

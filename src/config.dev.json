@@ -1,0 +1,19 @@
+{
+    "host": {
+        "name": "Yourself",
+        "url" : "http://127.0.0.1"
+    },
+    "pro": {
+        "enable": true,
+        "url": "http://127.0.0.1:3220/js/pro.js",
+        "check_token": "http://127.0.0.1:3220/api/checktoken/{token}"
+    },
+    "autoload": "services.example.json",
+    "env": "dev",
+    "dev": {
+        "autofillFirstname": "Maurice",
+        "autofillLastname": "Moss",
+        "autofillEmail": "maurice.moss@reynholm-industries.com",
+        "autofillGroup": "it"
+    }
+}

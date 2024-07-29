@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   fill="currentColor"
+   class="bi bi-magic"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="key-fill.svg"
+   inkscape:export-filename="/media/veracrypt1/dev/kontojkreado/docs/images/envelope-plus.png"
+   inkscape:export-xdpi="144"
+   inkscape:export-ydpi="144"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="6.109375"
+     inkscape:cx="25.616368"
+     inkscape:cy="-24.55243"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <rect
+     style="fill:#8bd7bc;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect847"
+     width="15.999999"
+     height="15.999999"
+     x="4.7683716e-07"
+     y="4.7683716e-07"
+     rx="3"
+     ry="3" />
+  <g
+     style="fill:currentColor"
+     id="g1398"
+     transform="matrix(0.9032679,0,0,0.9032679,0.99934753,0.77385673)">
+    <path
+       d="m 3.5,11.5 a 3.5,3.5 0 1 1 3.163,-5 H 14 L 15.5,8 14,9.5 l -1,-1 -1,1 -1,-1 -1,1 -1,-1 -1,1 H 6.663 A 3.5,3.5 0 0 1 3.5,11.5 M 2.5,9 a 1,1 0 1 0 0,-2 1,1 0 0 0 0,2"
+       id="path1389" />
+  </g>
+</svg>

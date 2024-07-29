@@ -2,11 +2,10 @@
     "name": "Kontoj",
     "short_name": "Kontoj",
     "start_url": ".",
-    "hostUrl" : "",
     "display": "browser",
     "description": "A webapp to help create accounts for services",
     "author": "Antoine Turmel <antoineturmel@gmail.com>",
-    "version" : "1.5",
+    "version" : "2.0",
     "build" : "",
     "repository": {
         "type": "git",
@@ -15,10 +14,6 @@
     "bugs": {
         "url": "https://github.com/galaksiotech/kontoj/issues"
     },
-    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v15",
-    "releaseNotes": "https://github.com/galaksiotech/kontoj/releases/",
-    "host": {
-        "name": "GitHub",
-        "url" : "https://github.com"
-    }
+    "documentation": "https://github.com/galaksiotech/kontoj#how-to-use-kontoj-v20",
+    "releaseNotes": "https://github.com/galaksiotech/kontoj/releases/"
 }

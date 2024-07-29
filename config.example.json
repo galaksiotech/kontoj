@@ -1,0 +1,14 @@
+{
+    "host": {
+        "name": "GitHub",
+        "url" : "https://github.com"
+    },
+    "pro": {
+        "enable": true,
+        "url": "http://kontoj.acme.com/pro",
+        "check_token": "https://kontoj.acme.com/checkToken",
+        "token": "abcdef123456",
+        "statusPage": "https://check.kontoj.acme.com"
+    },
+    "autoload": "services.example.json"
+}

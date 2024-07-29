@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'password';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/password.ttf);
+}
+
+body{
+  font-family:"Open Sans";
+  padding-left:10px;
+  padding-right:10px;
+  margin: 0px 2px 0px 0px !important;
+}
+
+#whatsnew-alert{
+  display: none;
+}
+
+.welcome-screen {
+  height: 70vh;
+}
+
+.welcome-content {
+  width: 30%;
+}
+
+.welcome-screen h2{
+  color: #273773;
+  text-align: center;
+}
+
+.welcome-screen img{
+  width: 500px;
+}
+
+.accordion-header {
+  /*background-color: #3D7068;
+  border-radius: 4px 4px 0px 0px;*/
+}
+
+.accordion-item {
+  border-color: #273773 !important;
+}
+
+.accordion-body {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #273773 !important;
+  /*color: white !important;*/
+}
+
+.labelTop{
+  min-width: fit-content;
+  margin-right: 10px;
+}
+
+.btnLoad::before{
+  content: "▶️ ";
+}
+
+.btnSave::before{
+  content: "💾 ";
+}
+
+.btnClear::before{
+  content: "❎ ";
+}
+
+.buttonTop{
+  margin-left: 5px;
+  min-width: fit-content;
+}
+
+dialog {
+  border-radius: 10px;
+  border-width: 1.5px;
+  border-color: #273773;
+  box-shadow: 5px 5px 5px #273773;
+  background-color: #f8f9fa;
+}
+
+#helpDialog,
+#companionDialog,
+#settingsDialog {
+  width: 600px;
+}
+
+#kontoj-companion-installed-status-ok,
+#kontoj-companion-installed-status-nok,
+#kontoj-companion-installed-status-version,
+#version-available,
+#companionInstallInformationButton {
+  display: none;
+}
+
+#aboutDialog {
+  background-image: url("/images/galaksio-h100.png");
+  background-position: 95% 5%;
+  background-repeat: no-repeat;
+}
+
+#settingsDialog .settingTitle {
+  font-size: 1.2rem;
+}
+
+button.unlock_pass {
+  display:none;
+}
+
+.sticky{
+  position: sticky;
+  top:0px;
+  z-index:5;
+}
+
+.header{
+  background-color: #273773 !important;
+  padding-top:10px;
+  color: white;
+}
+
+.general-infos{
+  background-color: #caede0 !important;
+}
+
+.emailfield {
+  font-family: "Open Sans";
+}
+
+.passwordfield {
+  font-family: "Open Sans";
+}
+
+.hide-password {
+  font-family: 'password';
+}
+
+.passwordfield::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family: "Open Sans";
+  opacity: 1; /* Firefox */
+}
+
+.passwordfield:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: "Open Sans";
+}
+
+.passwordfield::-ms-input-placeholder { /* Microsoft Edge */
+  font-family: "Open Sans";
+}
+
+
+.row {
+  background: #f8f9fa;
+  margin-top: 1px;
+}
+
+.col {
+  /* border: solid 1px #6c757d; */
+  padding: 5px;
+}
+.col-1 {
+    /* border: solid 1px #6c757d; */
+    padding: 5px;
+
+  text-align:center;
+}
+input.larger {
+  width: 30px;
+  height: 30px;
+}
+
+.accordion--custom .accordion-header {
+  display: flex; /* make flex element */
+  align-items: center; /* aligning child items */
+  column-gap: 1rem; /* adding gap between items in row */
+  padding-left: 1rem;
+}
+
+/* small udjustments */
+.accordion--custom .accordion-header .accordion-button {
+  padding-left: 0;
+  background: none;
+}
+
+.accordion--custom .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.icon-button{
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  padding: 4.5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service_logo {
+  width: 32px;
+  height: 32px;
+}
+
+.url-login {
+  text-decoration: none;
+  color: inherit;
+}
+
+.gen_pass_service{
+  cursor:pointer;
+}
+
+.file-icon{
+  font-size: 32px;
+}
+
+.disable-fill {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23787878' class='bi bi-x-octagon' viewBox='0 0 16 16'> <path d='M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z'/> <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/> </svg>");
+  background-repeat: no-repeat;
+  background-position: right 2% top 50%;
+}
+
+[data-bs-theme=dark] .accordion-header {
+  background-color: #151515;
+}
+[data-bs-theme=dark] .accordion-button {
+  color: white !important;
+}
+[data-bs-theme=dark] .accordion-button:not(.collapsed) {
+  color: white !important;
+}
+[data-bs-theme=dark] .labelTop {
+  color: black !important;
+}
+[data-bs-theme=dark] .accordion-body {
+  background-color: #2c2c2c;
+}
+[data-bs-theme=dark] .row {
+  background: #2c2c2c;
+}
+[data-bs-theme=dark] dialog {
+  background-color: #2c2c2c;
+}
+[data-bs-theme=dark] .welcome-screen h2{
+  color: #ffffff;
+}

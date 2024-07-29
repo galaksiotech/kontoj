@@ -1,0 +1,194 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "servicesListName": {
+      "type": "string",
+      "description": "Service List Name",
+      "minLength": 1
+    },
+    "subjectMail": {
+      "type": "string",
+      "description": "subject of mail sent to the person with credentials, you can use variables _firstname_ and _lastname_"
+    },
+    "bodyMailStart": {
+      "type": "string",
+      "description": "start of the mail body, you can use variables _firstname_ and _lastname_, eg. 'Hello _firstname_ here are your credentials'"
+    },
+    "bodyMailEnd": {
+      "type": "string",
+      "description": "end of the mail body, you can use variables _firstname_ and _lastname_, eg. 'Greetings'"
+    },
+    "passwordLength": {
+      "type": "number",
+      "description": "length of passwords generated",
+      "default": 8,
+      "minimum": 8
+    },
+    "passwordChars": {
+      "type": "string",
+      "description": "caracters used for password generation, eg. ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "minLength": 10
+    },
+    "hideGroups": {
+      "type": "array",
+      "description": "a list of service groups to hide, identified by their name",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "disableGroups": {
+      "type": "array",
+      "description": "a list of service groups to disable, identified by their name",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createdTime": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "object",
+            "properties": {
+              "URL Login": {
+                "type": "string",
+                "description": "The URL used to connect to the service"
+              },
+              "Status": {
+                "type": "object",
+                "properties": {
+                  "URL": {
+                    "type" : "string",
+                    "description": "The URL of the service status dashboard"
+                  },
+                  "iframe": {
+                    "type" : "boolean",
+                    "description": "If the service status can be opened in an iframe"
+                  }
+                }
+              },
+              "Service Group": {
+                "type": "string",
+                "description": "The Service Group, used to group services in the interface",
+                "minLength": 1
+              },
+              "Password Notes": {
+                "type": "string",
+                "description": "Password notes shown in inteface and provided in mail body"
+              },
+              "Icon": {
+                "type": "string",
+                "description": "URL to an icon (it can be any browser valid image format)"
+              },
+              "Name": {
+                "type": "string",
+                "description": "Name of the service, mandatory",
+                "minLength": 1
+              },
+              "Password Type": {
+                "type": "string",
+                "description": "Type of connection used, mandatory",
+                "enum": [
+                    "email-password",
+                    "login-password",
+                    "third-party"
+                ]
+              },
+              "User Group": {
+                "type": "array",
+                "description": "User Group that need the service",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "URL Create Account": {
+                "type": "string",
+                "description": "URL path to create the account page on the service"
+              },
+              "Notes": {
+                "type": "string",
+                "description": "Free notes"
+              },
+              "Software": {
+                "type": "string",
+                "description": "URL to download Software"
+              },
+              "autofill": {
+                "type": "object",
+                "properties": {
+                  "login": {
+                    "type" : "string",
+                    "description": "CSS selector for login input field, don't forget to escape double quotes"
+                  },
+                  "email": {
+                    "type" : "string",
+                    "description": "CSS selector for email input field, don't forget to escape double quotes"
+                  },
+                  "password": {
+                    "type" : "string",
+                    "description": "CSS selector for password input field, don't forget to escape double quotes"
+                  },
+                  "passwordconfirm": {
+                    "type" : "string",
+                    "description": "CSS selector for password confirm input field, don't forget to escape double quotes"
+                  },
+                  "firstname": {
+                    "type" : "string",
+                    "description": "CSS selector for firstname input field, don't forget to escape double quotes"
+                  },
+                  "lastname": {
+                    "type" : "string",
+                    "description": "CSS selector for lastname input field, don't forget to escape double quotes"
+                  },
+                  "fullname": {
+                    "type" : "string",
+                    "description": "CSS selector for fullname input field, don't forget to escape double quotes"
+                  },
+                  "custom": {
+                    "type" : "string",
+                    "description": "additionnal JavaScript code to be executed, don't forget to escape double quotes"
+                  }
+                }
+              },
+              "Config": {
+                "type": "array",
+                "description": "Additional config for each service, eg. 'disabled' for not loading the service, 'disableFillPassword' & 'disableFillEmail' for disabling autofill",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "Name",
+              "Password Type",
+              "Service Group"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "fields"
+        ]
+      }
+    }
+  },
+  "required": [
+    "records",
+    "servicesListName",
+    "passwordLength",
+    "passwordChars"
+  ]
+}
